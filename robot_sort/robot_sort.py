@@ -96,39 +96,39 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        if len(self) >1: 
-            mid = len(self)//2 # Finding the mid of the array 
-            L = self[:mid] # Dividing the array elements  
-            R = self[mid:] # into 2 halves 
-    
-            merge_sort(L) # Sorting the first half 
-            merge_sort(R) # Sorting the second half 
-    
-            i = j = k = 0
-          
-        # Copy data to temp arrays L[] and R[] 
-        while i < len(L) and j < len(R): 
-            if L[i] < R[j]: 
-                arr[k] = L[i] 
-                i+= 1
-            else: 
-                arr[k] = R[j] 
-                j+= 1
-            k+= 1
-          
-        # Checking if any element was left 
-        while i < len(L): 
-            arr[k] = L[i] 
-            i+= 1
-            k+= 1
-          
-        while j < len(R): 
-            arr[k] = R[j] 
-            j+= 1
-            k+= 1
+        
+        while not light_is_on():
+            
+            while can_move_left():
+            
+                move_left()
+
+            swap_item()
+
+            while move_right():
+
+                move_right()
+                
+                if compare_item()     
+            
+
+        
+
+        else:
+
+            compare_item()
 
 
-        return self
+
+        for i in range(0, len(self._list) - 1):
+            
+            for j in range(0, len(self._list) - i - 1):
+                
+                if self._list[j] > self._list[j+1]:
+
+                    self._list[j], self._list[j+1] = self._list[j+1], self._list[j]        
+            
+        return self._list
 
 
 if __name__ == "__main__":
